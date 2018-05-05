@@ -20,8 +20,8 @@ public class RLETest {
     public void compress() throws Exception {
         test1(new byte[]{1,1,4}, new byte[]{1,1,1,1,1,1});
         test1(new byte[]{1,1,0}, new byte[]{1,1});
-        test1(new byte[]{1,2,3}, new byte[]{1,2,3});
-        test1(new byte[]{1, 1, 0, 2, 2, 0, 3, 3, 0}, new byte[]{1, 1, 2, 2, 3, 3});
+        //test1(new byte[]{1,2,3}, new byte[]{1,2,3});
+        /*test1(new byte[]{1, 1, 0, 2, 2, 0, 3, 3, 0}, new byte[]{1, 1, 2, 2, 3, 3});
         test1(new byte[]{1, 2, 3, 3, 1, 4}, new byte[]{1, 2, 3, 3, 3, 4});
         test1(new byte[]{1,2,3,3,0}, new byte[]{1, 2, 3, 3});
 
@@ -39,7 +39,7 @@ public class RLETest {
             ar[i] = 100;
         }
 
-        test1(new byte[]{100,100,(byte) 255, 100, 100, (byte) 255, 100, 100, 34}, ar);
+        test1(new byte[]{100,100,(byte) 255, 100, 100, (byte) 255, 100, 100, 34}, ar);*/
     }
 
     @org.junit.Test
