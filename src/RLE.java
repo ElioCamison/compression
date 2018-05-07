@@ -15,10 +15,10 @@ public class RLE {
         // Dins result, es va enmagatzemant la sortida de bytes.
         StringBuilder result = new StringBuilder();
         boolean sameNumber = false;
-        boolean diferentNumber = false;
+        boolean nextCoincidence = false;
 
         // -------------------------------------------------------------- //
-        while ( (current = is.read()) != -1) {
+        while ((current = is.read()) != -1) {
 
             // Guardamos el valor anterior, el primer valor será -1.
             // Comparamos el último valor con el actual.
@@ -28,7 +28,18 @@ public class RLE {
 
             if (last == current) {
                 count++;
-                if (count > 1){
+                if (count == 1) {
+                    for (int i = 0; i < result.length(); i++) {
+                        String aux = String.valueOf(last);
+                        if (Integer.parseInt(String.valueOf(result.charAt(i))) == last) {
+                            result.append(last);
+                            result.append(0);
+                            count = 0;
+                            break;
+                        }
+                    }
+                }
+                if (count > 1) {
                     sameNumber = true;
                 }
             } else if (last != current) {
@@ -53,13 +64,11 @@ public class RLE {
                 }
                 result.append(count - last * MAX_NUMBER_REPEAT);
             }
-
             last = current;
             countWhile++;
-            //System.out.println(current);
         }
         // -------------------------------------------------------------- //
-        if ( current == -1 && sameNumber ) {
+        if (current == -1 && sameNumber) {
             for (int i = 0; i < MAX_NUMBER_REPEAT; i++) {
                 result.append(last);
             }
@@ -73,7 +82,6 @@ public class RLE {
             data[i] = Byte.valueOf(String.valueOf(result.charAt(i)));
         }
         // -------------------------------------------------------------- //
-
         os.write(data);
         System.out.println(Arrays.toString(data));
     }
