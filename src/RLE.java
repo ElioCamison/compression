@@ -19,53 +19,29 @@ public class RLE {
 
         // -------------------------------------------------------------- //
         while ((current = is.read()) != -1) {
-
-            // Guardamos el valor anterior, el primer valor será -1.
-            // Comparamos el último valor con el actual.
-            if (countWhile == 0) {
+            if (last == -1){
                 last = current;
             }
 
             if (last == current) {
+                sameNumber = true;
                 count++;
-                if (count == 1) {
-                    for (int i = 0; i < result.length(); i++) {
-                        String aux = String.valueOf(last);
-                        if (Integer.parseInt(String.valueOf(result.charAt(i))) == last) {
-                            result.append(last);
-                            result.append(0);
-                            count = 0;
-                            break;
-                        }
-                    }
-                }
-                if (count > 1) {
-                    sameNumber = true;
-                }
-            } else if (last != current) {
-                if (countWhile == 1) {
+            }
+
+            if (last != current){
+                for (int i = 0; i < count - MAX_NUMBER_REPEAT; i++) {
                     result.append(last);
-                } else if (count > 1) {
-                    for (int i = 0; i < MAX_NUMBER_REPEAT; i++) {
-                        result.append(last);
-                    }
-                    if (count > 2) {
-                        count -= MAX_NUMBER_REPEAT;
-                    } else {
+                    if ( count == 2){
                         result.append(0);
                     }
+                    if (count > 2) {
+                        result.append(count-MAX_NUMBER_REPEAT);
+                    }
                 }
-                count = 0;
+                result.append(last);
                 sameNumber = false;
-                result.append(current);
-            } else {
-                for (int i = 0; i < MAX_NUMBER_REPEAT; i++) {
-                    result.append(last);
-                }
-                result.append(count - last * MAX_NUMBER_REPEAT);
             }
             last = current;
-            countWhile++;
         }
         // -------------------------------------------------------------- //
         if (current == -1 && sameNumber) {
@@ -83,6 +59,8 @@ public class RLE {
         }
         // -------------------------------------------------------------- //
         os.write(data);
+        os.flush();
+        os.close();
         System.out.println(Arrays.toString(data));
     }
 

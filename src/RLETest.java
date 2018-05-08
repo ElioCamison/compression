@@ -21,11 +21,11 @@ public class RLETest {
         test1(new byte[]{1,1,4}, new byte[]{1,1,1,1,1,1});
         test1(new byte[]{1,1,0}, new byte[]{1,1});
         //test1(new byte[]{1,2,3}, new byte[]{1,2,3});
-        /*test1(new byte[]{1, 1, 0, 2, 2, 0, 3, 3, 0}, new byte[]{1, 1, 2, 2, 3, 3});
-        test1(new byte[]{1, 2, 3, 3, 1, 4}, new byte[]{1, 2, 3, 3, 3, 4});
+        //test1(new byte[]{1, 1, 0, 2, 2, 0, 3, 3, 0}, new byte[]{1, 1, 2, 2, 3, 3});
+        //test1(new byte[]{1, 2, 3, 3, 1, 4}, new byte[]{1, 2, 3, 3, 3, 4});
         test1(new byte[]{1,2,3,3,0}, new byte[]{1, 2, 3, 3});
 
-        byte[]ar;
+        /*byte[]ar;
 
         ar = new byte[260];
         for (int i = 0; i < ar.length; i++) {
