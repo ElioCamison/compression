@@ -12,38 +12,33 @@ public class RLE {
 
     // -------------------------------------------------------------- //
     // -------------------------------------------------------------- //
+
     public static void compress(InputStream is, OutputStream os) throws Exception {
 
-        int current = 0, last = -1, count = 0;
+        int current = is.read(), last = 0, count = 0;
+
+        if(current != -1){ last = current; count = 1; }
         // -------------------------------------------------------------- //
-        while ( (current = is.read()) != -1 ) {
+        while (true) {
+            current = is.read();
             // -------------------------------------------------------------- //
-            if ( last == -1      ) { last = current; }
-            if ( last == current ) { count++;        }
+            if ( last == current ) { count++; continue; }
             // -------------------------------------------------------------- //
-            if (last != current) {
+            else {
                 // -------------------------------------------------------------- //
                 if (count >= 2) { operation(last, count); }
-                if (count == 1) { RESULT.append(last);    }
+                    else { RESULT.append(last); }
                 // -------------------------------------------------------------- //
-                count = 0;
-                // -------------------------------------------------------------- //
-                count++;
+                count = 1;
+                last = current;
             }
-            // -------------------------------------------------------------- //
-            last = current;
+            if(current == -1) break;
         }
-        // -------------------------------------------------------------- //
-        // -------------------------------------------------------------- //
-        if (current == -1 && count == 1) { RESULT.append(last); }
-        if (current == -1 && count != 1 && count < MAX_NUMBER_BYTE) { operation(last, count); }
-        // -------------------------------------------------------------- //
         os.write(insertData(RESULT));
         closedOutput(os);
         System.out.println(Arrays.toString(insertData(RESULT)));
         RESULT.setLength(0);
     }
-
 
     // -------------------------------------------------------------- //
     // -------------------------------------------------------------- //
