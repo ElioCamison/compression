@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class RLE {
     private static final Integer MAX_NUMBER_REPEAT = 2;
+    private static final Integer MAX_NUMBER_BYTE = 255;
     public static StringBuilder RESULT = new StringBuilder();
 
     // -------------------------------------------------------------- //
@@ -22,8 +23,7 @@ public class RLE {
             // -------------------------------------------------------------- //
             if (last != current) {
                 // -------------------------------------------------------------- //
-                if (count  > 2) { operation(last, count); }
-                if (count == 2) { operation(last, count); }
+                if (count >= 2) { operation(last, count); }
                 if (count == 1) { RESULT.append(last);    }
                 // -------------------------------------------------------------- //
                 count = 0;
@@ -36,7 +36,7 @@ public class RLE {
         // -------------------------------------------------------------- //
         // -------------------------------------------------------------- //
         if (current == -1 && count == 1) { RESULT.append(last); }
-        if (current == -1 && count != 1) { operation(last, count); }
+        if (current == -1 && count != 1 && count < MAX_NUMBER_BYTE) { operation(last, count); }
         // -------------------------------------------------------------- //
         os.write(insertData(RESULT));
         closedOutput(os);

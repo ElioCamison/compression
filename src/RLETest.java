@@ -18,21 +18,21 @@ public class RLETest {
 
     @org.junit.Test
     public void compress() throws Exception {
-        test1(new byte[]{1,1,4}, new byte[]{1,1,1,1,1,1});
+        /*test1(new byte[]{1,1,4}, new byte[]{1,1,1,1,1,1});
         test1(new byte[]{1,1,0}, new byte[]{1,1});
         test1(new byte[]{1,2,3}, new byte[]{1,2,3});
         test1(new byte[]{1, 1, 0, 2, 2, 0, 3, 3, 0}, new byte[]{1, 1, 2, 2, 3, 3});
         test1(new byte[]{1, 2, 3, 3, 1, 4}, new byte[]{1, 2, 3, 3, 3, 4});
-        test1(new byte[]{1,2,3,3,0}, new byte[]{1, 2, 3, 3});
+        test1(new byte[]{1,2,3,3,0}, new byte[]{1, 2, 3, 3});*/
 
-       /* byte[]ar;
+        byte[]ar;
 
         ar = new byte[260];
         for (int i = 0; i < ar.length; i++) {
             ar[i] = 100;
         }
 
-        test1(new byte[]{100,100,(byte) 255, 100, 100, 1}, ar);*/
+        test1(new byte[]{100,100,(byte) 255, 100, 100, 1}, ar);
 
         /*ar = new byte[550];
         for (int i = 0; i < ar.length; i++) {
