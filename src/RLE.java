@@ -3,9 +3,7 @@ import com.sun.org.apache.regexp.internal.RE;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class RLE {
     private static final Integer MAX_NUMBER_REPEAT = 2;
@@ -19,7 +17,7 @@ public class RLE {
         // -------------------------------------------------------------- //
         while ( (current = is.read()) != -1 ) {
             // -------------------------------------------------------------- //
-            if (    last == -1   ) { last = current; }
+            if ( last == -1      ) { last = current; }
             if ( last == current ) { count++;        }
             // -------------------------------------------------------------- //
             if (last != current) {
@@ -29,23 +27,21 @@ public class RLE {
                 if (count == 1) { RESULT.append(last);    }
                 // -------------------------------------------------------------- //
                 count = 0;
-                //RESULT.append(current);
+                // -------------------------------------------------------------- //
                 count++;
             }
             // -------------------------------------------------------------- //
             last = current;
         }
         // -------------------------------------------------------------- //
-        //RESULT.setLength(0);
         // -------------------------------------------------------------- //
         if (current == -1 && count == 1) { RESULT.append(last); }
         if (current == -1 && count != 1) { operation(last, count); }
         // -------------------------------------------------------------- //
-
-        // -------------------------------------------------------------- //
         os.write(insertData(RESULT));
         closedOutput(os);
         System.out.println(Arrays.toString(insertData(RESULT)));
+        RESULT.setLength(0);
     }
 
 
@@ -90,5 +86,6 @@ public class RLE {
         }
         RESULT.append(count - MAX_NUMBER_REPEAT);
         return RESULT;
+
     }
 }
