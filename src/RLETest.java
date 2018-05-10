@@ -18,14 +18,14 @@ public class RLETest {
 
     @org.junit.Test
     public void compress() throws Exception {
-        /*test1(new byte[]{1,1,4}, new byte[]{1,1,1,1,1,1});
+        test1(new byte[]{1,1,4}, new byte[]{1,1,1,1,1,1});
         test1(new byte[]{1,1,0}, new byte[]{1,1});
         test1(new byte[]{1,2,3}, new byte[]{1,2,3});
         test1(new byte[]{1, 1, 0, 2, 2, 0, 3, 3, 0}, new byte[]{1, 1, 2, 2, 3, 3});
         test1(new byte[]{1, 2, 3, 3, 1, 4}, new byte[]{1, 2, 3, 3, 3, 4});
-        test1(new byte[]{1,2,3,3,0}, new byte[]{1, 2, 3, 3});*/
+        test1(new byte[]{1,2,3,3,0}, new byte[]{1, 2, 3, 3});
 
-       byte[]ar;
+       /*byte[]ar;
 
         ar = new byte[260];
         for (int i = 0; i < ar.length; i++) {
@@ -34,7 +34,7 @@ public class RLETest {
 
         test1(new byte[]{100,100,(byte) 255, 100, 100, 1}, ar);
 
-        /*ar = new byte[550];
+        ar = new byte[550];
         for (int i = 0; i < ar.length; i++) {
             ar[i] = 100;
         }
@@ -44,14 +44,14 @@ public class RLETest {
 
     @org.junit.Test
     public void decompress() throws Exception {
-        test2(new byte[]{5,5}, new byte[]{5,5,0});
-        test2(new byte[]{1,2,3}, new byte[]{1,2,3});
-        test2(new byte[]{1,2,2,3}, new byte[]{1,2,2,0,3});
+        //test2(new byte[]{5,5}, new byte[]{5,5,0});
+        //test2(new byte[]{1,2,3}, new byte[]{1,2,3});
+        //test2(new byte[]{1,2,2,3}, new byte[]{1,2,2,0,3});
         test2(new byte[]{1,2,3,3,3,3}, new byte[]{1,2,3,3,2});
-        test2(new byte[]{5}, new byte[]{5});
-        test2(new byte[]{1,1,2,2,3,3,4,4}, new byte[]{1,1,0,2,2,0,3,3,0,4,4,0});
+        //test2(new byte[]{5}, new byte[]{5});    --> ok
+        //test2(new byte[]{1,1,2,2,3,3,4,4}, new byte[]{1,1,0,2,2,0,3,3,0,4,4,0});
 
-        byte[]ar;
+        /*byte[]ar;
 
         ar = new byte[202];
         for (int i = 0; i < ar.length; i++) {
@@ -65,7 +65,7 @@ public class RLETest {
             ar[i] = 55;
         }
 
-        test2(ar, new byte[]{55,55,(byte)255, 55, 55, 0});
+        test2(ar, new byte[]{55,55,(byte)255, 55, 55, 0});*/
 
     }
 
