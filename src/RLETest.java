@@ -6,13 +6,13 @@ public class RLETest {
 
     private void test1(byte[] expected, byte[] input) throws Exception {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        RLE.compress(new ByteArrayInputStream(input), bos);
+        RLE_withList.compress(new ByteArrayInputStream(input), bos);
         assertArrayEquals(expected, bos.toByteArray());
     }
 
     private void test2(byte[] expected, byte[] input) throws Exception {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        RLE.decompress(new ByteArrayInputStream(input), bos);
+        RLE_withList.decompress(new ByteArrayInputStream(input), bos);
         assertArrayEquals(expected, bos.toByteArray());
     }
 
@@ -25,7 +25,7 @@ public class RLETest {
         test1(new byte[]{1, 2, 3, 3, 1, 4}, new byte[]{1, 2, 3, 3, 3, 4});
         test1(new byte[]{1,2,3,3,0}, new byte[]{1, 2, 3, 3});
 
-       /*byte[]ar;
+        byte[]ar;
 
         ar = new byte[260];
         for (int i = 0; i < ar.length; i++) {
@@ -39,15 +39,15 @@ public class RLETest {
             ar[i] = 100;
         }
 
-        test1(new byte[]{100,100,(byte) 255, 100, 100, (byte) 255, 100, 100, 34}, ar);*/
+        test1(new byte[]{100,100,(byte) 255, 100, 100, (byte) 255, 100, 100, 34}, ar);
     }
 
     @org.junit.Test
     public void decompress() throws Exception {
         //test2(new byte[]{5,5}, new byte[]{5,5,0});
         //test2(new byte[]{1,2,3}, new byte[]{1,2,3});
-        //test2(new byte[]{1,2,2,3}, new byte[]{1,2,2,0,3});
-        test2(new byte[]{1,2,3,3,3,3}, new byte[]{1,2,3,3,2});
+        test2(new byte[]{1,2,2,3}, new byte[]{1,2,2,0,3});
+        //test2(new byte[]{1,2,3,3,3,3}, new byte[]{1,2,3,3,2});
         //test2(new byte[]{5}, new byte[]{5});    --> ok
         //test2(new byte[]{1,1,2,2,3,3,4,4}, new byte[]{1,1,0,2,2,0,3,3,0,4,4,0});
 
