@@ -48,7 +48,7 @@ public class RLETest {
         //test2(new byte[]{1,2,3}, new byte[]{1,2,3});
         test2(new byte[]{1,2,2,3}, new byte[]{1,2,2,0,3});
         //test2(new byte[]{1,2,3,3,3,3}, new byte[]{1,2,3,3,2});
-        //test2(new byte[]{5}, new byte[]{5});    --> ok
+        //test2(new byte[]{5}, new byte[]{5});
         //test2(new byte[]{1,1,2,2,3,3,4,4}, new byte[]{1,1,0,2,2,0,3,3,0,4,4,0});
 
         /*byte[]ar;
@@ -74,6 +74,7 @@ public class RLETest {
         String s1 = Utils.directory + Utils.testFile;
         String s2 = s1 + ".comp.rle";
         String s3 = s1 + ".decomp.rle";
+
 
         InputStream is = new BufferedInputStream(new FileInputStream(s1));
         OutputStream os = new BufferedOutputStream(new FileOutputStream(s2));
