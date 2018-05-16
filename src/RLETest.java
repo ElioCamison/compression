@@ -45,9 +45,9 @@ public class RLETest {
     @org.junit.Test
     public void decompress() throws Exception {
         //test2(new byte[]{5,5}, new byte[]{5,5,0});
-        //test2(new byte[]{1,2,3}, new byte[]{1,2,3});
-        test2(new byte[]{1,2,2,3}, new byte[]{1,2,2,0,3});
-        //test2(new byte[]{1,2,3,3,3,3}, new byte[]{1,2,3,3,2});
+       // test2(new byte[]{1,2,3}, new byte[]{1,2,3});
+        //test2(new byte[]{1,2,2,3}, new byte[]{1,2,2,0,3});
+        test2(new byte[]{1,2,3,3,3,3}, new byte[]{1,2,3,3,2});
         //test2(new byte[]{5}, new byte[]{5});
         //test2(new byte[]{1,1,2,2,3,3,4,4}, new byte[]{1,1,0,2,2,0,3,3,0,4,4,0});
 
